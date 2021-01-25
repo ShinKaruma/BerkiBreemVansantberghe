@@ -1,0 +1,9 @@
+couleur fond hex : 36393F
+
+couleur texte : DCDDDE
+
+couleur nav : 2F3136
+
+text-rendering: optimized legibility
+
+font-family: whitney, Arial, Helvetica, sans-serif, Helvetica Neue;
