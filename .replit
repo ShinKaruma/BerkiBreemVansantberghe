@@ -1,2 +1,2 @@
 language = "html"
-run = "Pages/Accueil.html"
+run = "Pages/index.html"

@@ -1,0 +1,23 @@
+body{
+    background-color: #36393F;
+    color : #DCDDDE;
+    font-family: whitney, Arial, Helvetica, sans-serif, Helvetica Neue;
+    text-rendering: optimizeLegibility;
+}
+
+nav{
+    width: 400px;
+    text-align:center;
+    margin: 0 auto;
+    color : #DCDDDE;
+    background-color: #2F3136;
+    font-size: 22px;
+}
+
+
+.desc{
+    font-size: 18px;
+    text-align: center;
+    width: auto;
+    background-color: #2F3136;
+}
