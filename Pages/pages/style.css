@@ -14,10 +14,6 @@ nav{
     font-size: 22px;
 }
 
-thead,tr,th{
-    text-align: center;
-}
-
 table,th,tr{
     width: 700px;
     text-align: center;
@@ -69,8 +65,4 @@ img.displayed{
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
-}
-
-.underline {
-  text-decoration: underline;
 }
