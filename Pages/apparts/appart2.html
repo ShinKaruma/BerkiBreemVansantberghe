@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Appartement n°2</title>
-    <link href="../style.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" href="../icons/favicon.ico" sizes="32x32">
-  </head>
-  <body>
-      <nav>
-          <a href="../index.html">Acceuil</a>
-		  <a href="../contacts.html">Contacts</a>
-      </nav>
+<div class "container">
 
-      <h1>Appartement N°2</h1>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Appartement n°2</title>
+		<link href="../style.css" rel="stylesheet" type="text/css" />
+		<link rel="icon" href="../icons/favicon.ico" sizes="32x32">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+	</head>
 
-      <img class="displayed" src="../images/appart2.jpg" alt="Appartement" style="width:500px;height:300px;">
+	<body>
+		<nav>
+			<a href="../index.html">Acceuil</a>
+			<a href="../contacts.html">Contacts</a>
+		</nav>
+
+		<h1>Appartement N°2</h1>
+
+		<div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 2</div>
+                <img src="../images/appart2.jpg" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 2</div>
+                <img src="../images/exterieur_appart2.jpg" style="width:100%">
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>   <!-- Slideshow container -->
 
       <div class="desc">
           <p> Luxueux appartement de type T3 (FF4) avec double séjour, deux grandes chambres dont une avec balcon, salle d'eau avec douche à l'italienne et une baignoire, cuisine spacieuse entièrement équipée, terrasse, cave et rare sur le secteur, un garage en sous-sol. Au pied de toutes les commodités et du tramway L2, cette résidence recherchée, sécurisée, boisée et calme vous séduira à coup sûr ! Contactez-nous sans attendre pour une présentation en visite virtuelle ! </p>
       </div>
+      <button type="button" onclick="clickHandler()">Télécharger en PDF!</button>
+
+        <script type="text/javascript" src="../script.js"></script>
+    <!--pas touche sinon jte bz-->
   </body>
+</div>
 </html>
