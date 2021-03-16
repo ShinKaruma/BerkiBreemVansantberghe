@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1
+-- http://www.phpmyadmin.net
 --
--- Hôte : localhost:3306
--- Généré le : mar. 16 mars 2021 à 09:35
--- Version du serveur :  8.0.23-0ubuntu0.20.04.1
--- Version de PHP : 7.4.3
+-- Client :  localhost
+-- Généré le :  Mar 16 Mars 2021 à 20:15
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,32 +17,32 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `site_immo`
+-- Base de données :  `site_immo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Bien`
+-- Structure de la table `bien`
 --
 
-CREATE TABLE `Bien` (
-  `IDb` int NOT NULL,
-  `Type` int NOT NULL,
+CREATE TABLE `bien` (
+  `IDb` int(11) NOT NULL,
+  `Type` int(11) NOT NULL,
   `Desc` varchar(500) NOT NULL,
   `Jardin` varchar(3) NOT NULL,
   `Taille` varchar(10) NOT NULL,
-  `NbPiece` int NOT NULL,
-  `Prix` int NOT NULL,
+  `NbPiece` int(11) NOT NULL,
+  `Prix` int(11) NOT NULL,
   `Ville` varchar(15) NOT NULL,
   `Adresse` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `Bien`
+-- Contenu de la table `bien`
 --
 
-INSERT INTO `Bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`, `Ville`, `Adresse`) VALUES
+INSERT INTO `bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`, `Ville`, `Adresse`) VALUES
 (1, 2, 'Ce magnifique appartement T3 saura ravir vos envies avec sa chambre deux personnes et sa salle de bain possedant douche, lavabo avec miroir et son porte serviette chauffant. Avec une exposition plein sud ainsi que son quartier calme à quelques minutes en transport en communs du centre-ville, cet appartement aura le charme que vous cherchez', 'non', '65m²', 3, 125000, 'Paris', '5 rue chepaou'),
 (2, 1, 'Idéalement située dans un quartier très recherché, cette maison récente vous séduira par ses volumes, sa luminosité et sa fonctionnalité. Son jardin de 1221 M² orienté plein sud sans vis à vis comprend une piscine 10 X 5 M. Elle offre: Un salon/salle à manger baigné de lumière grâce à de grandes baies vitrées, une cuisine semi ouverte avec coin dînatoire et cellier attenant, une chambre spacieuse avec salle de bains et dressing, et des WC séparés.', 'oui', '100m²', 5, 828000, 'Dijon', '12 rue de la rue'),
 (3, 1, 'Cette villa vous séduira par sa luminosité, la qualité de sa construction et ses volumes. Superbe pièce de vie de 97m² avec cuisine ouverte, entourée de baies vitrées donnant sur le jardin. Bel agencement intérieur créant des espaces bien distincts comprenant une suite parentale de 42m², deux chambres de 25m² avec chacune sa salle d\'eau, un grand bureau de 40m², un cellier, une buanderie,et 2 wc indépendants.', 'oui', '300m²', 10, 950000, 'Lille', '20 rue kelkeupar'),
@@ -63,19 +61,19 @@ INSERT INTO `Bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `TypeBien`
+-- Structure de la table `typebien`
 --
 
-CREATE TABLE `TypeBien` (
-  `IdType` int NOT NULL,
+CREATE TABLE `typebien` (
+  `IdType` int(11) NOT NULL,
   `LibeleeType` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `TypeBien`
+-- Contenu de la table `typebien`
 --
 
-INSERT INTO `TypeBien` (`IdType`, `LibeleeType`) VALUES
+INSERT INTO `typebien` (`IdType`, `LibeleeType`) VALUES
 (1, 'Maison'),
 (2, 'Appart'),
 (3, 'Immeuble'),
@@ -90,51 +88,40 @@ INSERT INTO `TypeBien` (`IdType`, `LibeleeType`) VALUES
 
 CREATE TABLE `utilisateur` (
   `login` varchar(20) NOT NULL,
-  `passe` varchar(16) NOT NULL,
+  `passe` varchar(60) NOT NULL,
   `droits` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `utilisateur`
---
-
-INSERT INTO `utilisateur` (`login`, `passe`, `droits`) VALUES
-('agent1', 'agent1', 1),
-('agent2', 'agent2', 1);
-
---
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
--- Index pour la table `Bien`
+-- Index pour la table `bien`
 --
-ALTER TABLE `Bien`
+ALTER TABLE `bien`
   ADD PRIMARY KEY (`IDb`);
 
 --
--- Index pour la table `TypeBien`
+-- Index pour la table `typebien`
 --
-ALTER TABLE `TypeBien`
+ALTER TABLE `typebien`
   ADD PRIMARY KEY (`IdType`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT pour la table `Bien`
+-- AUTO_INCREMENT pour la table `bien`
 --
-ALTER TABLE `Bien`
-  MODIFY `IDb` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+ALTER TABLE `bien`
+  MODIFY `IDb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT pour la table `TypeBien`
+-- AUTO_INCREMENT pour la table `typebien`
 --
-ALTER TABLE `TypeBien`
-  MODIFY `IdType` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-COMMIT;
-
+ALTER TABLE `typebien`
+  MODIFY `IdType` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

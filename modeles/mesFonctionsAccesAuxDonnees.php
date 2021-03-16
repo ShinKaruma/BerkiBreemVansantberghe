@@ -35,6 +35,25 @@ function connexionUser($objConnexion, $login, $passe) {
     var_dump($bvc2);
     
     $tab = $monObjPdoStatement->execute();
+    $test = $monObjPdoStatement->fetchAll();
+    $monObjPdoStatement->closeCursor();
+    
+    return $test[0][0];
+}
+
+
+function ajouterUser($objConnexion, $login, $passe){
+    $passe_hash =  password_hash($passe, PASSWORD_DEFAULT);
+    $monObjPdoStatement = $objConnexion->prepare("insert into utilisateur(login,passe) values(:login,:passe)");
+    $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
+    $bvc2 = $monObjPdoStatement->bindValue(':passe',$passe_hash);
+    
+    var_dump($bvc1);
+    var_dump($bvc2);
+    
+    echo $passe_hash;
+    
+    $tab = $monObjPdoStatement->execute();
     $monObjPdoStatement->closeCursor();
     
     return $tab;

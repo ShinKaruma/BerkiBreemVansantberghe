@@ -15,6 +15,13 @@ $passe = "agent1";
 $conn = connexionUser($lePdo, $login, $passe);
 var_dump($conn);
 
+if($conn == 1){
+    echo 'Connexion réussie';    
+}
+else{
+    echo 'Erreur: mot de passe ou login incorrect';
+}
+
 //cas de test un incorrect
 $login = "agent5";
 $passe = "agent1";
@@ -22,9 +29,24 @@ $passe = "agent1";
 $conn = connexionUser($lePdo, $login, $passe);
 var_dump($conn);
 
+if($conn == 1){
+    echo 'Connexion réussie';    
+}
+else{
+    echo 'Erreur: mot de passe ou login incorrect';
+}
+
 //cas de test tout incorrect
 $login = "agent8";
 $passe = "jhgt";
 
 $conn = connexionUser($lePdo, $login, $passe);
 var_dump($conn);
+
+if($conn == 1){
+    echo 'Connexion réussie';    
+}
+else{
+    echo 'Erreur: mot de passe ou login incorrect';
+}
+
