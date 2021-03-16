@@ -7,6 +7,6 @@
         <?php
         // put your code here
         ?>
-        <a href="tests/testConnexionBDD.php"> BALISE BOUTON ICI </a>
+        <a href="vuecontroleurs/connexion.php"> Connexion </a>
     </body>
 </html>

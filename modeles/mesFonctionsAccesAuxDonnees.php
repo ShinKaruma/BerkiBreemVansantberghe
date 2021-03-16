@@ -1,9 +1,9 @@
 <?php
 
 function connexionBDD() {
-    $bdd = 'mysql:host=192.168.56.4;dbname=site_immo';
-    $user = 'master';
-    $password = 'master';
+    $bdd = 'mysql:host=localhost;dbname=site_immo';
+    $user = 'root';
+    $password = 'root';
     
     try {
 
@@ -20,4 +20,23 @@ function connexionBDD() {
     
 }
 
+
+
+function deconnexionBDD($cnx) {
+    $cnx = null;
+}
+
+function connexionUser($objConnexion, $login, $passe) {
+    $monObjPdoStatement = $objConnexion->prepare("select count(*) from utilisateur where login = :login and passe = :passe");
+    $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
+    $bvc2 = $monObjPdoStatement->bindValue(':passe', $passe);
+    
+    var_dump($bvc1);
+    var_dump($bvc2);
+    
+    $tab = $monObjPdoStatement->execute();
+    $monObjPdoStatement->closeCursor();
+    
+    return $tab;
+}
 ?>
