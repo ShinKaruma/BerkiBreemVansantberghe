@@ -2,8 +2,8 @@
 
 function connexionBDD() {
     $bdd = 'mysql:host=localhost;dbname=site_immo';
-    $user = 'root';
-    $password = 'root';
+    $user = 'AP2Mission3';
+    $password = 'master';
     
     try {
 
