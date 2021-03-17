@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 16 Mars 2021 à 20:15
+-- Généré le :  Mer 17 Mars 2021 à 13:39
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -89,8 +89,16 @@ INSERT INTO `typebien` (`IdType`, `LibeleeType`) VALUES
 CREATE TABLE `utilisateur` (
   `login` varchar(20) NOT NULL,
   `passe` varchar(60) NOT NULL,
-  `droits` tinyint(1) NOT NULL
+  `droits` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`login`, `passe`, `droits`) VALUES
+('agent1', '$2y$10$KZbdzkbgyiioxZzI6Sx0wevHVSx7A8BzoGn3exk95OtGpE.4HXpUi', 1),
+('agent2', '$2y$10$rYlwzRH.RzF9QcFR/6oweeG5Ez0DHU1FIhn3eGPYQUbLe6L/8B4SS', 1);
 
 --
 -- Index pour les tables exportées

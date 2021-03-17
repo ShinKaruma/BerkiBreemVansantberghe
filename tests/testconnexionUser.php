@@ -15,7 +15,7 @@ $passe = "agent1";
 $conn = connexionUser($lePdo, $login, $passe);
 var_dump($conn);
 
-if($conn == 1){
+if(password_verify($passe, $conn)){
     echo 'Connexion réussie';    
 }
 else{
@@ -29,7 +29,7 @@ $passe = "agent1";
 $conn = connexionUser($lePdo, $login, $passe);
 var_dump($conn);
 
-if($conn == 1){
+if(password_verify($passe, $conn)){
     echo 'Connexion réussie';    
 }
 else{
@@ -43,7 +43,7 @@ $passe = "jhgt";
 $conn = connexionUser($lePdo, $login, $passe);
 var_dump($conn);
 
-if($conn == 1){
+if(password_verify($passe, $conn)){
     echo 'Connexion réussie';    
 }
 else{

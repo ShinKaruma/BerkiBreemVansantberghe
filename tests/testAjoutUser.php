@@ -9,8 +9,8 @@ $lePdo = connexionBDD();
 var_dump($lePdo);
 
 //on entre en dur les valeurs7
-$login = "agent1";
-$passe = "agent1";
+$login = "agent2";
+$passe = "agent2";
 
 $test = ajouterUser($lePdo, $login, $passe);
 

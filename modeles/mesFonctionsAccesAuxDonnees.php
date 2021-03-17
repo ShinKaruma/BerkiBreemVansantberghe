@@ -27,18 +27,23 @@ function deconnexionBDD($cnx) {
 }
 
 function connexionUser($objConnexion, $login, $passe) {
-    $monObjPdoStatement = $objConnexion->prepare("select count(*) from utilisateur where login = :login and passe = :passe");
+    $monObjPdoStatement = $objConnexion->prepare("select passe from utilisateur where login = :login");
     $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
-    $bvc2 = $monObjPdoStatement->bindValue(':passe', $passe);
     
     var_dump($bvc1);
-    var_dump($bvc2);
     
     $tab = $monObjPdoStatement->execute();
     $test = $monObjPdoStatement->fetchAll();
     $monObjPdoStatement->closeCursor();
+   
     
-    return $test[0][0];
+    if(sizeof($test)==0){
+        return null;        
+    }
+    else{
+        return $test[0]['passe'];
+    }
+
 }
 
 
@@ -50,8 +55,7 @@ function ajouterUser($objConnexion, $login, $passe){
     
     var_dump($bvc1);
     var_dump($bvc2);
-    
-    echo $passe_hash;
+
     
     $tab = $monObjPdoStatement->execute();
     $monObjPdoStatement->closeCursor();
