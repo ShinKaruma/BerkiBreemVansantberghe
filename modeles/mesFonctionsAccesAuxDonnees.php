@@ -62,4 +62,21 @@ function ajouterUser($objConnexion, $login, $passe){
     
     return $tab;
 }
+
+function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville, $Adresse){
+	$req = $bdd->prepare('INSERT INTO `bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`, `Ville`, `Adresse`)');
+	$req->execute(array(
+	'IDb' => $IDb,
+	'Type' => $Type,
+	'Desc' => $Desc,
+	'Jardin' => $Jardin,
+	'Taille' => $Taille,
+	'NbPiece' => $NbPiece
+	'Prix' => $Prix
+	'Ville' => $Ville
+	'Adresse' => $Adresse
+	));
+
+	echo 'Le bien a été ajouté !';
+}
 ?>
