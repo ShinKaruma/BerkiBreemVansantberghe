@@ -71,10 +71,10 @@ function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville
 	'Desc' => $Desc,
 	'Jardin' => $Jardin,
 	'Taille' => $Taille,
-	'NbPiece' => $NbPiece
-	'Prix' => $Prix
-	'Ville' => $Ville
-	'Adresse' => $Adresse
+	'NbPiece' => $NbPiece,
+	'Prix' => $Prix,
+	'Ville' => $Ville,
+	'Adresse' => $Adresse,
 	));
 
 	echo 'Le bien a été ajouté !';
