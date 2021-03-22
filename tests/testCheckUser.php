@@ -14,16 +14,4 @@ $login = "BerkiBreemVansanberg";
 $passe = "test";
 
 $check = checkUser($lePdo, $login);
-
-if ($check == 1) {
-    echo "le login est déjà utilisé";
-} else {
-    if (strlen($login) > 20) {
-        echo strlen($login);
-        echo "\nerreur, login trop long";
-    } else {
-        $test = ajouterUser($lePdo, $login, $passe);
-
-        var_dump($test);
-    }
-}
+var_dump($check);

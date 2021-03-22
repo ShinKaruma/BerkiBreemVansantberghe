@@ -38,10 +38,17 @@ function connexionUser($objConnexion, $login, $passe) {
    
     
     if(sizeof($test)==0){
-        return null;        
+        return false;        
     }
     else{
-        return $test[0]['passe'];
+        $passe_hash = $test[0]['passe'];
+        if(password_verify($passe, $passe_hash)){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
     }
 
 }
@@ -63,6 +70,20 @@ function ajouterUser($objConnexion, $login, $passe){
     return $tab;
 }
 
+function checkUser($objConnexion, $login){
+    $monObjPdoStatement = $objConnexion->prepare("select count(*) from utilisateur where login = :login");
+    $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
+    
+    var_dump($bvc1);
+    
+    $tab = $monObjPdoStatement->execute();
+    $test = $monObjPdoStatement->fetchAll();
+    $monObjPdoStatement->closeCursor();
+    
+    
+    return $test[0]['count(*)']; 
+}
+
 function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville, $Adresse){
 	$req = $bdd->prepare('INSERT INTO `bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`, `Ville`, `Adresse`)');
 	$req->execute(array(
@@ -74,7 +95,11 @@ function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville
 	'NbPiece' => $NbPiece,
 	'Prix' => $Prix,
 	'Ville' => $Ville,
+<<<<<<< Updated upstream
 	'Adresse' => $Adresse,
+=======
+	'Adresse' => $Adresse
+>>>>>>> Stashed changes
 	));
         
         var_dump($bdd);

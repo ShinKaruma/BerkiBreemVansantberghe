@@ -6,8 +6,7 @@ include_once '../modeles/mesFonctionsAccesAuxDonnees.php';
 $lePdo = connexionBDD();
 var_dump($lePdo);
 
-//$login = $_POST['login'];
-//$passe = $_POST['passe'];
+
 //cas de test correct
 $login = "agent1";
 $passe = "agent1";
@@ -23,7 +22,7 @@ else{
 }
 
 //cas de test un incorrect
-$login = "agent5";
+$login = "agent2";
 $passe = "agent1";
 
 $conn = connexionUser($lePdo, $login, $passe);
