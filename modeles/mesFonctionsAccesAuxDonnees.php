@@ -22,8 +22,9 @@ function deconnexionBDD($cnx) {
 }
 
 function connexionUser($objConnexion, $login, $passe) {
+     $login_verif = htmlspecialchars($login);
     $monObjPdoStatement = $objConnexion->prepare("select passe from utilisateur where login = :login");
-    $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
+    $bvc1 = $monObjPdoStatement->bindValue(':login', $login_verif);
 
     var_dump($bvc1);
 
@@ -46,6 +47,7 @@ function connexionUser($objConnexion, $login, $passe) {
 
 function ajouterUser($objConnexion, $login, $passe) {
     $passe_hash = password_hash($passe, PASSWORD_DEFAULT);
+    $login_verif = htmlspecialchars($login);
     $monObjPdoStatement = $objConnexion->prepare("insert into utilisateur(login,passe) values(:login,:passe)");
     $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
     $bvc2 = $monObjPdoStatement->bindValue(':passe', $passe_hash);
@@ -61,8 +63,9 @@ function ajouterUser($objConnexion, $login, $passe) {
 }
 
 function checkUser($objConnexion, $login) {
+     $login_verif = htmlspecialchars($login);
     $monObjPdoStatement = $objConnexion->prepare("select count(*) from utilisateur where login = :login");
-    $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
+    $bvc1 = $monObjPdoStatement->bindValue(':login', $login_verif);
 
     var_dump($bvc1);
 
