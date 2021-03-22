@@ -76,6 +76,8 @@ function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville
 	'Ville' => $Ville,
 	'Adresse' => $Adresse,
 	));
+        
+        var_dump($bdd);
 
 	echo 'Le bien a été ajouté !';
 }
