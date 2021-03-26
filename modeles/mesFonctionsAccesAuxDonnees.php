@@ -26,7 +26,7 @@ function connexionUser($objConnexion, $login, $passe) {
     $monObjPdoStatement = $objConnexion->prepare("select passe from utilisateur where login = :login");
     $bvc1 = $monObjPdoStatement->bindValue(':login', $login_verif);
 
-    var_dump($bvc1);
+
 
     $tab = $monObjPdoStatement->execute();
     $test = $monObjPdoStatement->fetchAll();
