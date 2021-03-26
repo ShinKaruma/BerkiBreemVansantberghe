@@ -22,11 +22,10 @@ function deconnexionBDD($cnx) {
 }
 
 function connexionUser($objConnexion, $login, $passe) {
-     $login_verif = htmlspecialchars($login);
     $monObjPdoStatement = $objConnexion->prepare("select passe from utilisateur where login = :login");
-    $bvc1 = $monObjPdoStatement->bindValue(':login', $login_verif);
+    $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
 
-
+    var_dump($bvc1);
 
     $tab = $monObjPdoStatement->execute();
     $test = $monObjPdoStatement->fetchAll();
@@ -47,7 +46,6 @@ function connexionUser($objConnexion, $login, $passe) {
 
 function ajouterUser($objConnexion, $login, $passe) {
     $passe_hash = password_hash($passe, PASSWORD_DEFAULT);
-    $login_verif = htmlspecialchars($login);
     $monObjPdoStatement = $objConnexion->prepare("insert into utilisateur(login,passe) values(:login,:passe)");
     $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
     $bvc2 = $monObjPdoStatement->bindValue(':passe', $passe_hash);
@@ -63,9 +61,8 @@ function ajouterUser($objConnexion, $login, $passe) {
 }
 
 function checkUser($objConnexion, $login) {
-     $login_verif = htmlspecialchars($login);
     $monObjPdoStatement = $objConnexion->prepare("select count(*) from utilisateur where login = :login");
-    $bvc1 = $monObjPdoStatement->bindValue(':login', $login_verif);
+    $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
 
     var_dump($bvc1);
 
@@ -94,6 +91,29 @@ function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville
     var_dump($bdd);
 
     echo 'Le bien a été ajouté !';
+}
+
+function getResult ($objConnexion, $statement){
+    $monObjPdoStatement = $objConnexion->prepare($statement);
+    
+    $executionOk = $monObjPdoStatement->execute();
+    $result = $monObjPdoStatement->fetchAll();
+    
+    $monObjPdoStatement-> closeCursor();
+    return $result;
+}
+
+function afficherAppart1(){
+    
+    $lePdo = connexionBDD();
+
+    var_dump($lePdo);
+
+    $statement = "Select * From bien where IDb = 1";
+
+    $resultat = getResult($lePdo, $statement);
+
+    print_r($resultat);
 }
 
 ?>
