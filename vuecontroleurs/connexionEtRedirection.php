@@ -1,5 +1,7 @@
 <?php
+session_start();
 include_once '../modeles/mesFonctionsAccesAuxDonnees.php';
+
 
 $lePdo = connexionBDD();
 
@@ -9,6 +11,8 @@ $passe = $_POST['passe'];
 $connexion = connexionUser($lePdo, $login, $passe);
 
 if($connexion){
+    $_SESSION['droits'] = droitsUser($lePdo, $login);
+    var_dump($_SESSION['droits']);
     header('Location: ../index.php');
 }
 else{

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['droits']) == false) {
+    $_SESSION['droits'] = null;
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -5,7 +11,16 @@
     </head>
     <body>
         <?php
-        // put your code here
+        var_dump($_SESSION['droits']);
+
+
+        if ($_SESSION['droits'] == null) {
+            echo 2;
+        } 
+        else
+           if ($_SESSION['droits'] == '1') {
+            include 'inc/menuAgent.inc';
+        }
         ?>
         <a href="vuecontroleurs/connexion.php"> Connexion </a>
         <br>

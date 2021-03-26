@@ -60,6 +60,18 @@ function ajouterUser($objConnexion, $login, $passe) {
     return $tab;
 }
 
+function droitsUser($objConnexion, $login){
+    $monObjPdoStatement = $objConnexion->prepare("select droits from utilisateur where login = :login");
+    $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
+    
+    $tab = $monObjPdoStatement->execute();
+    $droit = $monObjPdoStatement->fetchAll();
+    $monObjPdoStatement->closeCursor();
+    
+    var_dump($droit);
+    return $droit[0]['droits'];
+}
+
 function checkUser($objConnexion, $login) {
     $monObjPdoStatement = $objConnexion->prepare("select count(*) from utilisateur where login = :login");
     $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
