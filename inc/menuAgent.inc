@@ -8,6 +8,6 @@
     <a>supprimer Bien</a>
     <a>lister les Biens</a>
     <a>modifier Biens</a>
-    <a>Deconnexion</a>
+    <a href="vuecontroleurs/deconnexion.php">Deconnexion</a>
 </nav>
 
