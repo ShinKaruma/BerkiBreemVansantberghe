@@ -128,4 +128,23 @@ function afficherAppart1(){
     print_r($resultat);
 }
 
+function modificationBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville, $Adresse) {
+    $req = $bdd->prepare('UPDATE `bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`, `Ville`, `Adresse`)');
+    $req->execute(array(
+        'IDb' => $IDb,
+        'Type' => $Type,
+        'Desc' => $Desc,
+        'Jardin' => $Jardin,
+        'Taille' => $Taille,
+        'NbPiece' => $NbPiece,
+        'Prix' => $Prix,
+        'Ville' => $Ville,
+        'Adresse' => $Adresse,
+    ));
+
+    var_dump($bdd);
+
+    echo 'Le bien a été modifié !';
+}
+
 ?>
