@@ -10,7 +10,7 @@ $lePdo = connexionBDD();
 var_dump($lePdo);
 
 //on entre en dur les valeurs7
-$login = "BerkiBreemVansanberg";
+$login = "test";
 $passe = "test";
 
 $check = checkUser($lePdo, $login);

@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Connexion</title>
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <?php
@@ -14,7 +15,7 @@
             <label for="login">Login:</label><br>
             <input type="text" id="login" name="login"><br>
             <label for="passe">Passe:</label><br>
-            <input type="text" id="passe" name="passe">
+            <input type="password" id="passe" name="passe">
             <input type="submit" value="Submit">
 
         </form>

@@ -1,20 +1,15 @@
 <?php
 session_start();
-if (isset($_SESSION['droits']) == false) {
-    $_SESSION['droits'] = null;
-}
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Acceuil</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <?php
-        var_dump($_SESSION['droits']);
-
-
-        if ($_SESSION['droits'] == null) {
+        if (isset($_SESSION['droits']) == false) {
             include 'inc/menuClient.inc';
         } 
         else
