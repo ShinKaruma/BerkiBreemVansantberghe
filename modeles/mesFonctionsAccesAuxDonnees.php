@@ -106,9 +106,9 @@ function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville
     echo 'Le bien a été ajouté !';
 }
 
-function getResult($objConnexion, $statement) {
-    $monObjPdoStatement = $objConnexion->prepare($statement);
-
+function getResult($objConnexion, $choice) {
+    $monObjPdoStatement = $objConnexion->prepare("Select * From bien where idB = $choice");
+    
     $executionOk = $monObjPdoStatement->execute();
     $result = $monObjPdoStatement->fetchAll();
 
@@ -116,19 +116,18 @@ function getResult($objConnexion, $statement) {
     return $result;
 }
 
-function afficherAppart1() {
+function getImage($objConnexion, $choice) {
+    
+    $monObjPdoStatement = $objConnexion->prepare("Select Images From images where idB = $choice");
+    
+    $executionOk = $monObjPdoStatement->execute();
+    $result = $monObjPdoStatement->fetchAll();
 
-    $lePdo = connexionBDD();
-
-    var_dump($lePdo);
-
-    $statement = "Select * From bien where IDb = 1";
-
-    $resultat = getResult($lePdo, $statement);
-
-    print_r($resultat);
+    $monObjPdoStatement->closeCursor();
+    
+    return $result;
 }
-
+    
 
 function modificationBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville, $Adresse) {
     $req = $bdd->prepare('UPDATE `bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`, `Ville`, `Adresse`)');

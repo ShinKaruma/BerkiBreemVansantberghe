@@ -4,10 +4,11 @@ include_once '../modeles/mesFonctionsAccesAuxDonnees.php';
 
 $lePdo = connexionBDD();
 
+$choice = htmlspecialchars ($_POST['bien']);
 var_dump($lePdo);
 
-$statement = "Select * From bien";
+var_dump($choice);
 
-$resultat = getResult($lePdo, $statement);
+$resultat = getResult($lePdo, $choice);
 
 var_dump($resultat);
