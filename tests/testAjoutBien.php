@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 include_once '../modeles/mesFonctionsAccesAuxDonnees.php';
 
@@ -10,3 +11,12 @@ $bdd->exec('INSERT INTO ajoutBien(IDb, Type, Desc, Jardin, Taille, NbPiece, Prix
 var_dump($bdd);
 
 
+=======
+<?php
+
+$a = "../";
+
+$b = $a. "lien";
+
+var_dump($b);
+>>>>>>> Stashed changes

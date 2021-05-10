@@ -4,8 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/inc/MenuClient.inc</file>
+<<<<<<< Updated upstream
             <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/index.php</file>
             <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/vuecontroleurs/AffichageBiens.php</file>
+=======
+            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/script%20sql/site_immo.sql</file>
+            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/modeles/mesFonctionsAccesAuxDonnees.php</file>
+            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/vuecontroleurs/action_ajout.php</file>
+            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/index.php</file>
+            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/inc/menuAgent.inc</file>
+            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/vuecontroleurs/AjoutBien.php</file>
+            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/tests/testAjoutBien.php</file>
+            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/js/slideshow.js</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
