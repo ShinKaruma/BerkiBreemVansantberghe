@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/tests/testAffichageBiens.php</file>
-            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/modeles/mesFonctionsAccesAuxDonnees.php</file>
-            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/index.php</file>
-            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/css/style.css</file>
-            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/vuecontroleurs/AffichageBiens.php</file>
-            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/tests/testGetPath.php</file>
-            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/tests/testAffichageImages.php</file>
-            <file>file:/C:/wamp64/www/gitdrip/BerkiBreemVansantberghe/js/slideshow.js</file>
+            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/modeles/mesFonctionsAccesAuxDonnees.php</file>
+            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/vuecontroleurs/AffichageBiens.php</file>
+            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/index.php</file>
+            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/tests/testGetPath.php</file>
+            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/tests/testTriBiens.php</file>
+            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/vuecontroleurs/RechercheBien.php</file>
+            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/inc/MenuClient.inc</file>
         </group>
     </open-files>
 </project-private>

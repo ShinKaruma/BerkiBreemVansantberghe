@@ -150,60 +150,44 @@ function modificationBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix,
 
 
 
-function triBiens($objConnexion, $type, $jardin, $taille, $NbPiece, $PrixMini, $PrixMax, $Ville) {
+function triBiens($objConnexion, $type, $jardin, $taille, $NbPiece, $PrixMini, $PrixMax, $Ville){
     $requete = "select Description, Jardin, Taille, NbPiece, Prix, Ville, Adresse from bien where ";
-    
+    if ($type != null) {$requete = $requete . "Type = :type";}
+    if ($jardin != null) {$requete = $requete . " and Jardin = :jardin";}
+    if ($taille != null) {$requete = $requete . " and Taille = :taille";}
+    if ($NbPiece != null) {$requete = $requete . " and NbPiece = :nbPiece";}
+    if ($PrixMini != null) {$requete = $requete . " and Prix >= :prixMini";}
+    if ($PrixMax != null) {$requete = $requete . " and Prix <= :prixMax";}
+    if ($Ville != null) {$requete = $requete . " and Ville = :ville";}
+    $monObjPdoStatement = $objConnexion->prepare($requete); 
     if ($type != null) {
-        $requete = $requete . "Type = :type";
-        $monObjPdoStatement = $objConnexion->prepare($requete);
         $bvc1 = $monObjPdoStatement->bindValue(':type', $type);
         var_dump($bvc1);
     }
-
     if ($jardin != null) {
-        $requete = $requete . " and Jardin = :jardin";
-        $monObjPdoStatement = $objConnexion->prepare($requete);
         $bvc2 = $monObjPdoStatement->bindValue(':jardin', $jardin);
         var_dump($bvc2);
     }
-
-    if ($taille != null) {
-        $requete = $requete . " and Taille = :taille";
-        $monObjPdoStatement = $objConnexion->prepare($requete);
+    if ($taille != null) {        
         $bvc3 = $monObjPdoStatement->bindValue(':taille', $taille);
         var_dump($bvc3);
     }
-
     if ($NbPiece != null) {
-        $requete = $requete . " and NbPiece = :nbPiece";
-        $monObjPdoStatement = $objConnexion->prepare($requete);
         $bvc4 = $monObjPdoStatement->bindValue(':nbPiece', $NbPiece);
         var_dump($bvc4);
     }
-
     if ($PrixMini != null) {
-        $requete = $requete . " and Prix >= :prixMini";
-        $monObjPdoStatement = $objConnexion->prepare($requete);
         $bvc5 = $monObjPdoStatement->bindValue(':prixMini', $PrixMini);
         var_dump($bvc5);
     }
-
     if ($PrixMax != null) {
-        $requete = $requete . " and Prix <= :prixMax";
-        $monObjPdoStatement = $objConnexion->prepare($requete);
         $bvc6 = $monObjPdoStatement->bindValue(':prixMax', $PrixMax);
         var_dump($bvc6);
     }
-
     if ($Ville != null) {
-        $requete = $requete . " and Ville = :ville";
-        $monObjPdoStatement = $objConnexion->prepare($requete);
         $bvc7 = $monObjPdoStatement->bindValue(':ville', $Ville);
         var_dump($bvc7);
     }
-    
-    var_dump($requete);
-    var_dump($monObjPdoStatement);
     $executionOk = $monObjPdoStatement->execute();
     $result = $monObjPdoStatement->fetchAll();
     $monObjPdoStatement->closeCursor();
