@@ -7,6 +7,7 @@ if (isset($_SESSION['droits']) == false) {
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
         <title>Acceuil</title>
     </head>
     <body>
