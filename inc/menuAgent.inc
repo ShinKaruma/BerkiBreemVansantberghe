@@ -8,6 +8,8 @@
     <a>supprimer Bien</a>
     <a href="vuecontroleurs/affichageBiens.php">lister les Biens</a>
     <a>modifier Biens</a>
+    <a href="vuecontroleurs/AffichageBiens.php">Affichage Biens</a>
+    <a href="vuecontroleurs/RechercheBien.php">Recherche Bien</a>
     <a href="vuecontroleurs/Deconnexion.php">Deconnexion</a>
 </nav>
 
