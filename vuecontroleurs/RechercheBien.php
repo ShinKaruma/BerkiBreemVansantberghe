@@ -16,6 +16,11 @@ session_start();
         if ($_SESSION['droits'] == '1') {
             include '../inc/menuAgent.inc';
         }
+
+        include_once '../modeles/mesFonctionsAccesAuxDonnees.php';
+
+        $lePdo = connexionBDD();
+        $sortie = selectionVilles($lePdo);
         ?>
 
         <form action="#" method="POST">
@@ -27,16 +32,22 @@ session_start();
                 <option value="4">Terrains nus</option>
                 <option value="5">Commerces</option>
             </select>
+            <label for ="bien">Jardin</label>
+            <select id="jardin" name="jardin">
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
 
-            <fieldset>
-                <label>Jardin</label><br>
-                <input type="radio" id="Oui" name="Oui" value="oui">
-                <label for="Oui">Oui</label><br>
+            <label for ="ville">Ville du bien</label>
+            <select id="ville" name = "ville">
+                <?php
+                for ($i = 0, $size = count($sortie); $i < $size; $i++) {
+                    echo '<option value=$sortie[$i]>$sortie[i]</option>';
+                }
+                ?>
+            </select>
 
-                <input type="radio" id="Nom" name="Nom" value="non">
-                <label for="Non">Non</label><br>
 
-            </fieldset>
         </form>
 
 

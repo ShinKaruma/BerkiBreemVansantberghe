@@ -173,4 +173,11 @@ function triBiens($objConnexion, $type, $jardin, $taille, $NbPiece, $PrixMini, $
     var_dump($result);    
 }
 
-?>
+
+function selectionVilles($objConnexion){
+    $requete = "select distinct Ville from bien";
+    $monObjPdoStatement = $objConnexion->prepare($requete); 
+    $executionOk = $monObjPdoStatement->execute();
+    $result = $monObjPdoStatement->fetchAll();
+    $monObjPdoStatement->closeCursor();
+}
