@@ -26,8 +26,17 @@
               <option value="4">Terrain nu</option>
               <option value="5">Commerce</option>
             </select><br><br>
+            <label for="bien">Jardin :</label><br>
+            <select id="jardin" required="required" name="jardin">
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select><br><br>
             <label for="login">Prix :</label><br>
             <input type="number" required="required" maxlength="11" id="prix" name="prix"><br><br>
+            <label for="login">Surface :</label><br>
+            <input type="number" required="required" maxlength="5" id="surface" name="surface"><br><br>
+            <label for="login">Nombre de pieces :</label><br>
+            <input type="number" required="required" maxlength="11" id="pieces" name="pieces"><br><br>
             Select image to upload:
             <input type="file" name="fileToUpload" id="fileToUpload">
             <input type="submit" value="Upload Image" name="submit">

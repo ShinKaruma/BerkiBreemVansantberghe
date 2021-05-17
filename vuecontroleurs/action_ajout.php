@@ -46,10 +46,10 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    $nom = $_FILES["fileToUpload"]["name"];
     $lePdo = connexionBDD();
-    ajoutBien($lePdo, $_POST['ref'], $_POST['type'], $_POST['prix'], $_POST['ville'], $_POST['adresse']);
-    $img = $_FILES["name"];
-    ajoutImage($lePdo, );
+    ajoutBien($lePdo, $_POST['ref'], $_POST['type'], $_POST['prix'], $_POST['ville'], $_POST['adresse'], $_POST['surface'], $_POST['pieces'], $_POST['jardin']);
+    ajoutImage($lePdo,$nom );
 
   } else {
     echo "Sorry, there was an error uploading your file.";

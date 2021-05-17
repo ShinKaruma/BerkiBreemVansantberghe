@@ -87,23 +87,29 @@ function checkUser($objConnexion, $login) {
     return $test[0]['count(*)'];
 }
 
-function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville, $Adresse) {
-    $req = $bdd->prepare('INSERT INTO `bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`, `Ville`, `Adresse`)');
-    $req->execute(array(
-        'IDb' => $IDb,
-        'Type' => $Type,
-        'Desc' => $Desc,
-        'Jardin' => $Jardin,
-        'Taille' => $Taille,
-        'NbPiece' => $NbPiece,
-        'Prix' => $Prix,
-        'Ville' => $Ville,
-        'Adresse' => $Adresse,
-    ));
+function ajoutBien($objConnexion, $IDb, $type, $jardin, $surface, $pieces, $prix, $ville, $adresse) {
+    
+    $monObjPdoStatement = $objConnexion->prepare("insert into bien('IDb', 'Type', 'Jardin', 'Taille', `NbPiece', 'Prix', 'Ville', 'Adresse') values(:id,:type,:jardin,:taille,:pieces,:prix,:ville,:adresse)");
+    $bvc1 = $monObjPdoStatement->bindValue(':id', $IDb);
+    $bvc2 = $monObjPdoStatement->bindValue(':type', $type);
+    $bvc3 = $monObjPdoStatement->bindValue(':jardin', $jardin);
+    $bvc4 = $monObjPdoStatement->bindValue(':taille', $surface);
+    $bvc5 = $monObjPdoStatement->bindValue(':pieces', $pieces);
+    $bvc6 = $monObjPdoStatement->bindValue(':prix', $prix);
+    $bvc7 = $monObjPdoStatement->bindValue(':ville', $ville);
+    $bvc8 = $monObjPdoStatement->bindValue(':adresse', $adresse);
+    
+    $tab = $monObjPdoStatement->execute();
+    $monObjPdoStatement->closeCursor();
+}
 
-    var_dump($bdd);
-
-    echo 'Le bien a été ajouté !';
+function ajoutImage($objConnexion,$nom ) {
+    
+    $monObjPdoStatement = $objConnexion->prepare("insert into images ('Images') values ($nom)");
+    
+    $tab = $monObjPdoStatement->execute();
+    $monObjPdoStatement->closeCursor();
+    
 }
 
 function getResult($objConnexion, $choice) {

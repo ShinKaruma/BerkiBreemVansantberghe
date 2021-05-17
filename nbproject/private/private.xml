@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/modeles/mesFonctionsAccesAuxDonnees.php</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/vuecontroleurs/AffichageBiens.php</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/inc/menuAgent.inc</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/index.php</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/vuecontroleurs/connexionEtRedirection.php</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/vuecontroleurs/RechercheBien.php</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/vuecontroleurs/Deconnexion.php</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/tests/testAjoutBien.php</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/vuecontroleurs/connexion.php</file>
-            <file>file:/C:/UwAmp/www/BerkiBreemVansantberghe/inc/MenuClient.inc</file>
+            <file>file:/C:/wamp64/www/BerkiBreemVansantberghe/modeles/mesFonctionsAccesAuxDonnees.php</file>
+            <file>file:/C:/wamp64/www/BerkiBreemVansantberghe/vuecontroleurs/action_ajout.php</file>
+            <file>file:/C:/wamp64/www/BerkiBreemVansantberghe/vuecontroleurs/AjoutBien.php</file>
+            <file>file:/C:/wamp64/www/BerkiBreemVansantberghe/index.php</file>
         </group>
     </open-files>
 </project-private>
