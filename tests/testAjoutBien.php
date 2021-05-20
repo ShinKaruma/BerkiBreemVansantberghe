@@ -9,4 +9,8 @@ $bdd->exec('INSERT INTO ajoutBien(IDb, Type, Desc, Jardin, Taille, NbPiece, Prix
 
 var_dump($bdd);
 
+$a = "../";
 
+$b = $a. "lien";
+
+var_dump($b);

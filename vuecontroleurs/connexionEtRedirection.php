@@ -20,4 +20,3 @@ else{
     sleep(15);
     header('Location: connexion.php');
 }
-

@@ -60,14 +60,15 @@ function ajouterUser($objConnexion, $login, $passe) {
     return $tab;
 }
 
-function droitsUser($objConnexion, $login){
+function droitsUser($objConnexion, $login) {
     $monObjPdoStatement = $objConnexion->prepare("select droits from utilisateur where login = :login");
     $bvc1 = $monObjPdoStatement->bindValue(':login', $login);
-    
+    var_dump($monObjPdoStatement);
+
     $tab = $monObjPdoStatement->execute();
     $droit = $monObjPdoStatement->fetchAll();
     $monObjPdoStatement->closeCursor();
-    
+
     var_dump($droit);
     return $droit[0]['droits'];
 }
@@ -105,27 +106,79 @@ function ajoutBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville
     echo 'Le bien a été ajouté !';
 }
 
-function getResult ($objConnexion, $statement){
-    $monObjPdoStatement = $objConnexion->prepare($statement);
+function getResult($objConnexion, $choice) {
+    $monObjPdoStatement = $objConnexion->prepare("Select * From bien where idB = $choice");
     
     $executionOk = $monObjPdoStatement->execute();
     $result = $monObjPdoStatement->fetchAll();
-    
-    $monObjPdoStatement-> closeCursor();
+
+    $monObjPdoStatement->closeCursor();
     return $result;
 }
 
-function afficherAppart1(){
+function getImage($objConnexion, $choice) {
     
-    $lePdo = connexionBDD();
+    $monObjPdoStatement = $objConnexion->prepare("Select Images From images where idB = $choice");
+    
+    $executionOk = $monObjPdoStatement->execute();
+    $result = $monObjPdoStatement->fetchAll();
 
-    var_dump($lePdo);
+    $monObjPdoStatement->closeCursor();
+    
+    return $result;
+}
+    
 
-    $statement = "Select * From bien where IDb = 1";
+function modificationBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix, $Ville, $Adresse) {
+    $req = $bdd->prepare('UPDATE `bien` (`IDb`, `Type`, `Desc`, `Jardin`, `Taille`, `NbPiece`, `Prix`, `Ville`, `Adresse`)');
+    $req->execute(array(
+        'IDb' => $IDb,
+        'Type' => $Type,
+        'Desc' => $Desc,
+        'Jardin' => $Jardin,
+        'Taille' => $Taille,
+        'NbPiece' => $NbPiece,
+        'Prix' => $Prix,
+        'Ville' => $Ville,
+        'Adresse' => $Adresse,
+    ));
 
-    $resultat = getResult($lePdo, $statement);
+    var_dump($bdd);
 
-    print_r($resultat);
+    echo 'Le bien a été modifié !';
 }
 
-?>
+
+
+function triBiens($objConnexion, $type, $jardin, $taille, $NbPiece, $PrixMini, $PrixMax, $Ville){
+    $requete = "select Description, Jardin, Taille, NbPiece, Prix, Ville, Adresse from bien where Type = :type";
+    if ($jardin != null) {$requete = $requete . " and Jardin = :jardin";}
+    if ($taille != null) {$requete = $requete . " and Taille <= :taille";}
+    if ($NbPiece != null) {$requete = $requete . " and NbPiece = :nbPiece";}
+    if ($PrixMini != null) {$requete = $requete . " and Prix >= :prixMini";}
+    if ($PrixMax != null) {$requete = $requete . " and Prix <= :prixMax";}
+    if ($Ville != null) {$requete = $requete . " and Ville = :ville";}
+    $monObjPdoStatement = $objConnexion->prepare($requete); 
+    if ($type != null) {$bvc1 = $monObjPdoStatement->bindValue(':type', $type);}
+    if ($jardin != null) {$bvc2 = $monObjPdoStatement->bindValue(':jardin', $jardin);}
+    if ($taille != null) {$bvc3 = $monObjPdoStatement->bindValue(':taille', $taille);}
+    if ($NbPiece != null) {$bvc4 = $monObjPdoStatement->bindValue(':nbPiece', $NbPiece);}
+    if ($PrixMini != null) {$bvc5 = $monObjPdoStatement->bindValue(':prixMini', $PrixMini);}
+    if ($PrixMax != null) {$bvc6 = $monObjPdoStatement->bindValue(':prixMax', $PrixMax);}
+    if ($Ville != null) {$bvc7 = $monObjPdoStatement->bindValue(':ville', $Ville);}
+    $executionOk = $monObjPdoStatement->execute();
+    var_dump($monObjPdoStatement);
+    $result = $monObjPdoStatement->fetchAll();
+    $monObjPdoStatement->closeCursor();
+    return $result;
+}
+
+
+function selectionVilles($objConnexion){
+    $requete = "select distinct Ville from bien";
+    $monObjPdoStatement = $objConnexion->prepare($requete); 
+    $executionOk = $monObjPdoStatement->execute();
+    $result = $monObjPdoStatement->fetchAll();
+    $monObjPdoStatement->closeCursor();
+    return $result;
+}
