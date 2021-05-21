@@ -202,7 +202,7 @@ function randomlink() {
 
 function changementMDP($objConnexion, $login, $mdp){
     $passe_hash = password_hash($mdp, PASSWORD_DEFAULT);
-    $monObjPdoStatement = $objConnexion->prepare("UPDATE utilisateur SET 'passe'= :mdp where 'login' = :login");
+    $monObjPdoStatement = $objConnexion->prepare("UPDATE utilisateur SET passe= :mdp where login = :login");
     $bvc1 = $monObjPdoStatement->bindValue(':mdp', $passe_hash);
     $bvc2 = $monObjPdoStatement->bindValue(':login', $login);
 
