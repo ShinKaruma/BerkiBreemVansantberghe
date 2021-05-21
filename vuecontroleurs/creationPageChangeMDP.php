@@ -29,7 +29,9 @@ $txt = "<!DOCTYPE html> \n"
         . " </html>";
 fwrite($myfile, $txt);
 
-#$liencomplet = "http://localhost/BerkiBreemVansantberghe" . $lien ;
+$liencomplet = "http://localhost/BerkiBreemVansantberghe" . $lien ;
+
+print($liencomplet);
 
 #ini_set("SMTP","smtp.gmail.com");
 #ini_set("smtp_port","25");
