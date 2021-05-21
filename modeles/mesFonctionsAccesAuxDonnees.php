@@ -188,3 +188,26 @@ function selectionVilles($objConnexion){
     $monObjPdoStatement->closeCursor();
     return $result;
 }
+
+function randomlink() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
+
+function changementMDP($objConnexion, $login, $mdp){
+    $passe_hash = password_hash($mdp, PASSWORD_DEFAULT);
+    $monObjPdoStatement = $objConnexion->prepare("UPDATE utilisateur SET 'passe'= :mdp where 'login' = :login");
+    $bvc1 = $monObjPdoStatement->bindValue(':mdp', $passe_hash);
+    $bvc2 = $monObjPdoStatement->bindValue(':login', $login);
+
+    $tab = $monObjPdoStatement->execute();
+    $monObjPdoStatement->closeCursor();
+
+    return $tab;
+}
