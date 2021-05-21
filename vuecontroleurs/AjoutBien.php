@@ -34,7 +34,7 @@
             <label for="login">Prix :</label><br>
             <input type="number" required="required" maxlength="11" id="prix" name="prix"><br><br>
             <label for="login">Surface :</label><br>
-            <input type="number" required="required" maxlength="5" id="surface" name="surface"><br><br>
+            <input type="text" required="required" maxlength="5" id="surface" name="surface"><br><br>
             <label for="login">Nombre de pieces :</label><br>
             <input type="number" required="required" maxlength="11" id="pieces" name="pieces"><br><br>
             Select image to upload:
