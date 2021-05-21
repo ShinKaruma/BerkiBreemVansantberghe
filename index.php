@@ -12,9 +12,6 @@ if (isset($_SESSION['droits']) == false) {
     </head>
     <body>
         <?php
-        var_dump($_SESSION['droits']);
-
-
         if ($_SESSION['droits'] == null) {
             include 'inc/menuClient.inc';
         } 

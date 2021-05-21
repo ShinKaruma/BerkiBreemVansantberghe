@@ -159,7 +159,7 @@ function modificationBien($IDb, $type, $desc, $jardin, $taille, $NbPiece, $Prix,
 function triBiens($objConnexion, $type, $jardin, $taille, $NbPiece, $PrixMini, $PrixMax, $Ville){
     $requete = "select Description, Jardin, Taille, NbPiece, Prix, Ville, Adresse from bien where Type = :type";
     if ($jardin != null) {$requete = $requete . " and Jardin = :jardin";}
-    if ($taille != null) {$requete = $requete . " and Taille = :taille";}
+    if ($taille != null) {$requete = $requete . " and Taille <= :taille";}
     if ($NbPiece != null) {$requete = $requete . " and NbPiece = :nbPiece";}
     if ($PrixMini != null) {$requete = $requete . " and Prix >= :prixMini";}
     if ($PrixMax != null) {$requete = $requete . " and Prix <= :prixMax";}
@@ -173,10 +173,18 @@ function triBiens($objConnexion, $type, $jardin, $taille, $NbPiece, $PrixMini, $
     if ($PrixMax != null) {$bvc6 = $monObjPdoStatement->bindValue(':prixMax', $PrixMax);}
     if ($Ville != null) {$bvc7 = $monObjPdoStatement->bindValue(':ville', $Ville);}
     $executionOk = $monObjPdoStatement->execute();
+    var_dump($monObjPdoStatement);
     $result = $monObjPdoStatement->fetchAll();
     $monObjPdoStatement->closeCursor();
-    var_dump($executionOk);
-    var_dump($result);    
+    return $result;
 }
 
-?>
+
+function selectionVilles($objConnexion){
+    $requete = "select distinct Ville from bien";
+    $monObjPdoStatement = $objConnexion->prepare($requete); 
+    $executionOk = $monObjPdoStatement->execute();
+    $result = $monObjPdoStatement->fetchAll();
+    $monObjPdoStatement->closeCursor();
+    return $result;
+}
